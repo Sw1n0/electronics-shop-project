@@ -52,4 +52,14 @@ def test_instantiate_from_csv(csv_file):
 
 # TestCase string_to_number
 def test_string_to_number():
-    assert Item.string_to_number("45.5") == 4
+    assert Item.string_to_number("45.5") == 45
+
+
+# TestCase __repr__
+def test_repr(monitor):
+    assert repr(monitor) == "Item('Монитор', 5000, 5)"
+
+
+# TestCase __str__
+def test_str(monitor):
+    assert str(monitor) == "Монитор"
