@@ -2,11 +2,18 @@ import pytest
 from src.item import Item
 import os.path
 
+from src.phone import Phone
+
 
 @pytest.fixture
 # """Здесь надо написать тесты с использованием pytest для модуля item."""
 def monitor():
     return Item("Монитор", 5000, 5)
+
+
+@pytest.fixture
+def phone():
+    return Phone("Nokia", 5000, 5, 1)
 
 
 @pytest.fixture
@@ -63,3 +70,9 @@ def test_repr(monitor):
 # TestCase __str__
 def test_str(monitor):
     assert str(monitor) == "Монитор"
+
+
+# TestCase __add__
+def test_add(monitor, phone):
+    assert monitor + phone == 10
+
