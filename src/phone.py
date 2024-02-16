@@ -9,7 +9,6 @@ class Phone(Item):
     def __repr__(self):
         return f"Phone('{self.name}', {self.price}, {self.quantity}, {self.__number_of_sim})"
 
-
     @property
     def number_of_sim(self):
         return self.__number_of_sim
