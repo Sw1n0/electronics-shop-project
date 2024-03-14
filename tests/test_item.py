@@ -1,5 +1,5 @@
 import pytest
-from src.item import Item
+from src.item import Item, InstantiateCSVError
 import os.path
 
 from src.phone import Phone
@@ -76,3 +76,12 @@ def test_str(monitor):
 def test_add(monitor, phone):
     assert monitor + phone == 10
 
+# TestCase FileNotFoundError
+def test_instantiate_from_csv():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv("items_none.csv")
+
+# TestCase InstantiateCSVError
+def test_instantiate_from_csv():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv("items_corrupted.csv")
